@@ -117,7 +117,7 @@ export function HomePage({ onNavigate }: { onNavigate: (page: Page) => void }) {
             <div>
               <h2 className="section-title">A sharper lens on the Nepali experience.</h2>
               <p className="mt-5 max-w-md leading-7 text-slate-600">
-                Nepal360 operates at the intersection of culture, media, and opportunity — making the diaspora more visible, informed, and connected.
+                Nepal365 operates at the intersection of culture, media, and opportunity — making the diaspora more visible, informed, and connected.
               </p>
             </div>
             <div className="grid gap-5 md:grid-cols-2">

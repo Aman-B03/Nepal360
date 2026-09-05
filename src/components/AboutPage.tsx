@@ -8,7 +8,7 @@ export function AboutPage({ onNavigate }: { onNavigate: (page: Page) => void }) 
     <PageShell
       eyebrow="Our strategy & people"
       title="Architecting the future of diaspora media"
-      intro="Nepal360 exists to solve a critical gap: high-quality, research-backed media made specifically for the lived experiences of Nepalis abroad and the people preparing to join them."
+      intro="Nepal365 exists to solve a critical gap: high-quality, research-backed media made specifically for the lived experiences of Nepalis abroad and the people preparing to join them."
     >
       <div className="grid gap-6 lg:grid-cols-2 mt-5">
         <InfoPanel title="Our vision">
