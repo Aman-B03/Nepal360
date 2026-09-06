@@ -7,13 +7,24 @@ import { AboutPage } from '@/components/AboutPage';
 import { FellowshipPage } from '@/components/FellowshipPage';
 
 function navigate(page: Page) {
-  window.location.hash = page === 'home' ? '' : page;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (page === 'faq') {
+    // For FAQ, set the hash and scroll to the section
+    window.location.hash = 'faq';
+    setTimeout(() => {
+      const faqSection = document.getElementById('faq-section');
+      if (faqSection) {
+        faqSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  } else {
+    window.location.hash = page === 'home' ? '' : page;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
 
 function getPageFromHash(): Page {
   const hash = window.location.hash.replace('#', '');
-  return hash === 'about' || hash === 'fellowship' || hash === 'apply' ? hash : 'home';
+  return hash === 'about' || hash === 'fellowship' || hash === 'apply' || hash === 'faq' ? hash : 'home';
 }
 
 export default function App() {
@@ -26,6 +37,18 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Scroll to FAQ section when page is 'faq'
+  useEffect(() => {
+    if (page === 'faq') {
+      setTimeout(() => {
+        const faqSection = document.getElementById('faq-section');
+        if (faqSection) {
+          faqSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [page]);
+
   const goTo = (nextPage: Page) => {
     setMenuOpen(false);
     navigate(nextPage);
@@ -36,7 +59,7 @@ export default function App() {
       <Header page={page} menuOpen={menuOpen} setMenuOpen={setMenuOpen} goTo={goTo} />
 
       <main>
-        {page === 'home' && <HomePage onNavigate={goTo} />}
+        {(page === 'home' || page === 'faq') && <HomePage onNavigate={goTo} />}
         {page === 'about' && <AboutPage onNavigate={goTo} />}
         {page === 'fellowship' && <FellowshipPage onNavigate={goTo} />}
       </main>

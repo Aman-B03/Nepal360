@@ -14,7 +14,7 @@ export function FellowshipPage({ onNavigate }: { onNavigate: (page: Page) => voi
     <PageShell
       eyebrow="Cohort 2026 applications open"
       title="Global Nepali Diaspora Research & Media Fellowship"
-      intro="A six-month creator fellowship for high-potential students and young creatives in Nepal. Learn the craft, launch a real media property, and get recognized for work that matters."
+      intro="We are ambitious, we are early, and we are building. If you are a researcher, a creator, an analyst, or simply someone who believes Nepali society deserves verified information told beautifully, we want to hear from you. A six-month creator fellowship for high-potential students and young creatives in Nepal. Learn the craft, launch a real media property, and get recognized for work that matters."
     >
       <div className="mt-4 flex flex-wrap gap-3">
         <span className="pill"><Clock3 size={15} /> 6 months</span>
@@ -56,9 +56,9 @@ export function FellowshipPage({ onNavigate }: { onNavigate: (page: Page) => voi
             ))}
           </div>
         </div>
-        <div className="rounded-3xl bg-[#f0f4fa] p-7 sm:p-9">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#c8102e]">How we select</p>
-          <div className="mt-5 space-y-5">
+        {/* <div className="rounded-3xl bg-[#f0f4fa] p-7 sm:p-9"> */}
+          {/* <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#c8102e]">How we select</p> */}
+          {/* <div className="mt-5 space-y-5">
             {[
               ['Creativity & storytelling', '40%'],
               ['Reliability & punctuality', '30%'],
@@ -75,8 +75,8 @@ export function FellowshipPage({ onNavigate }: { onNavigate: (page: Page) => voi
                 </div>
               </div>
             ))}
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
       <div className="mt-20 rounded-[28px] bg-[#c8102e] p-8 text-white sm:p-12 lg:flex lg:items-center lg:justify-between">
         <div>

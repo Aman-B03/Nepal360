@@ -12,6 +12,7 @@ const navItems: { label: string; page: Page }[] = [
   { label: 'Home', page: 'home' },
   { label: 'About us', page: 'about' },
   { label: 'Fellowship', page: 'fellowship' },
+  { label: 'FAQs', page: 'faq' },
 ];
 
 export function Header({ page, menuOpen, setMenuOpen, goTo }: HeaderProps) {
@@ -24,7 +25,7 @@ export function Header({ page, menuOpen, setMenuOpen, goTo }: HeaderProps) {
           </span>
           <span>
             <span className="block font-display text-[21px] font-semibold leading-none tracking-[-0.03em] text-[#003893]">
-              Nepal<span className="text-[#c8102e]">365</span>
+              Nepali<span className="text-[#c8102e]">365</span>
             </span>
             <span className="mt-1 block text-[9px] font-semibold uppercase tracking-[0.22em] text-slate-500">
               Global Nepali Diaspora Network

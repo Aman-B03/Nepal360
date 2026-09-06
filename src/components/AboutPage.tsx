@@ -19,6 +19,13 @@ export function AboutPage({ onNavigate }: { onNavigate: (page: Page) => void }) 
         </InfoPanel>
       </div>
       <div className="mt-20">
+        <SectionLabel>Our people</SectionLabel>
+        <h2 className="section-title mt-4 max-w-3xl">Who we are</h2>
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+          We are a team spread across the world (the United States, Australia, the UAE, Nepal, and growing) who carry Nepal in our hearts wherever we live. We have no office, and we don't need one: we work remotely, across four time zones, united by one belief: collective effort beats individual brilliance. No single face fronts Nepali 365; the work does.
+        </p>
+      </div>
+      <div className="mt-20">
         <SectionLabel>Who we serve</SectionLabel>
         <h2 className="section-title mt-4 max-w-2xl">Four audiences. One connected ecosystem.</h2>
         <div className="mt-8 grid gap-4 md:grid-cols-2">

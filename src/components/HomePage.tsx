@@ -1,6 +1,7 @@
-import { ArrowRight, Globe2, Search, Sparkles, Users } from 'lucide-react';
+import { ArrowRight, Globe2, Search, Sparkles, Users, ChevronDown } from 'lucide-react';
 import { Page } from '@/types';
 import { SectionLabel, FeatureCard } from './UI';
+import { useState } from 'react';
 
 function StatsBanner() {
   const stats = [
@@ -15,9 +16,8 @@ function StatsBanner() {
         {stats.map(([value, label], index) => (
           <div
             key={value}
-            className={`px-5 py-7 sm:px-8 lg:px-10 ${
-              index < 3 ? 'border-b border-slate-200 md:border-b-0 md:border-r' : ''
-            }`}
+            className={`px-5 py-7 sm:px-8 lg:px-10 ${index < 3 ? 'border-b border-slate-200 md:border-b-0 md:border-r' : ''
+              }`}
           >
             <p className="font-display text-3xl font-semibold text-[#003893]">{value}</p>
             <p className="mt-1 text-sm text-slate-500">{label}</p>
@@ -28,7 +28,51 @@ function StatsBanner() {
   );
 }
 
+function FAQItem({ question, answer, isOpen, onClick }: { question: string; answer: string; isOpen: boolean; onClick: () => void }) {
+  return (
+    <div className="border-b border-slate-200">
+      <button
+        onClick={onClick}
+        className="flex w-full items-start justify-between gap-4 px-6 py-5 text-left hover:bg-slate-50/50 transition"
+      >
+        <span className="flex-1">
+          <h3 className="font-display text-lg font-semibold text-[#003893]">{question}</h3>
+        </span>
+        <span className={`mt-1 flex-shrink-0 text-[#c8102e] transition-transform ${isOpen ? 'rotate-180' : ''}`}>
+          <ChevronDown size={20} />
+        </span>
+      </button>
+      {isOpen && (
+        <div className="px-6 pb-5 text-slate-600 leading-7 animate-fade-up">
+          <p>{answer}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export function HomePage({ onNavigate }: { onNavigate: (page: Page) => void }) {
+  const [openFAQ, setOpenFAQ] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: "Is this fellowship completely free to join?",
+      answer: "Absolutely! There are no application fees or hidden charges. The entire fellowship program is completely free for all selected participants.",
+    },
+    {
+      question: "Will I receive compensation for my contributions?",
+      answer: "Yes! Fellows earn a monthly stipend of NPR 5,000, plus performance-based bonuses that reflect the quality and reach of your published work. The more impact your content creates, the more you can earn.",
+    },
+    {
+      question: "Will I receive attribution for the content I create?",
+      answer: "Definitely! Every piece of work you create will include proper credit to you as the author. Your contributions will be publicly attributed, helping build your professional portfolio and credibility.",
+    },
+    {
+      question: "Are there any age requirements for applicants?",
+      answer: "Applicants under 25 years old are particularly encouraged to apply and will receive preferential consideration. However, we welcome talented creators of all ages to apply.",
+    },
+  ];
+
   return (
     <>
       <section className="relative isolate overflow-hidden">
@@ -60,12 +104,12 @@ export function HomePage({ onNavigate }: { onNavigate: (page: Page) => void }) {
               </button>
             </div>
             <div className="mt-10 flex items-center gap-4 text-sm text-slate-500">
-              <div className="flex -space-x-2">
+              {/* <div className="flex -space-x-2">
                 <span className="avatar bg-[#003893]">A</span>
                 <span className="avatar bg-[#c8102e]">S</span>
                 <span className="avatar bg-[#5275ae]">K</span>
                 <span className="avatar bg-[#630505]">N</span>
-              </div>
+              </div> */}
               <span>Built by Nepalis, for Nepalis everywhere.</span>
             </div>
           </div>
@@ -88,7 +132,7 @@ export function HomePage({ onNavigate }: { onNavigate: (page: Page) => void }) {
                 <div className="mt-20 flex items-end justify-between border-t border-white/15 pt-5">
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-white/50">Connected across</p>
-                    <p className="mt-1 text-sm font-semibold">North America · Australia · UK · Gulf</p>
+                    <p className="mt-1 text-sm font-semibold">North America · Australia · Gulf</p>
                   </div>
                   <Globe2 size={36} className="text-white/30" />
                 </div>
@@ -109,7 +153,40 @@ export function HomePage({ onNavigate }: { onNavigate: (page: Page) => void }) {
         </div>
       </section>
 
-      <StatsBanner />
+      {/* <StatsBanner /> */}
+
+      {/* Our Story Section */}
+      <section className="section-pad">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-16 lg:grid-cols-2">
+            {/* Creative for centuries */}
+            <div className="animate-fade-up">
+              <h2 className="font-display text-4xl font-semibold leading-tight text-[#003893] sm:text-5xl">
+                Creative for centuries. Informed for the future.
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-slate-600">
+                Nepalis have always been builders: creativity, and resilience carved a thriving civilization into some of the world's most rugged terrain. Nepal365 exists to carry that same spirit into the digital age, 365 days a year.
+              </p>
+              <p className="mt-6 text-lg leading-8 text-slate-600">
+                We bridge research, rigorous reporting, and modern storytelling to give our global community the clarity it deserves.
+              </p>
+            </div>
+
+            {/* Why we exist */}
+            <div className="animate-fade-up [animation-delay:150ms]">
+              <h2 className="font-display text-4xl font-semibold leading-tight text-[#003893] sm:text-5xl">
+                Why we exist
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-slate-600">
+                The world moved fast, and the feed moved faster. Today, Nepalis at home and across the diaspora swim in endless headlines, punchlines, and half-truths. Communities once denied formal education now scroll smartphones with no habit of asking where information comes from.
+              </p>
+              <p className="mt-4 text-lg leading-8 text-slate-600">
+                Misinformation shapes how we vote, spend, migrate, marry, and interact. We believe Nepali society deserves better—in a format people actually want to watch.              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section-pad">
         <div className="mx-auto max-w-7xl">
           <SectionLabel>What we do</SectionLabel>
@@ -117,7 +194,7 @@ export function HomePage({ onNavigate }: { onNavigate: (page: Page) => void }) {
             <div>
               <h2 className="section-title">A sharper lens on the Nepali experience.</h2>
               <p className="mt-5 max-w-md leading-7 text-slate-600">
-                Nepal365 operates at the intersection of culture, media, and opportunity — making the diaspora more visible, informed, and connected.
+                Nepali365 operates at the intersection of culture, media, and opportunity — making the diaspora more visible, informed, and connected.
               </p>
             </div>
             <div className="grid gap-5 md:grid-cols-2">
@@ -138,6 +215,44 @@ export function HomePage({ onNavigate }: { onNavigate: (page: Page) => void }) {
           <button onClick={() => onNavigate('apply')} className="mt-8 button-light lg:mt-0">
             Apply to the 2026 cohort <ArrowRight size={17} />
           </button>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq-section" className="section-pad">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-12 animate-fade-up">
+            <div className="eyebrow mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#c8102e]" /> Got questions?
+            </div>
+            <h2 className="font-display text-4xl font-semibold leading-tight text-[#003893] sm:text-5xl">
+              Frequently asked questions
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-slate-600">
+              Everything you need to know about the Nepali365 fellowship program, benefits, and what we're looking for in our creators.
+            </p>
+          </div>
+
+          <div className="rounded-[20px] border border-slate-200 bg-white shadow-sm overflow-hidden">
+            {faqs.map((faq, index) => (
+              <FAQItem
+                key={index}
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openFAQ === index}
+                onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+              />
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 to-transparent p-8 text-center">
+            <p className="text-slate-700">
+              Still have questions? Reach out to our team at{' '}
+              <a href="mailto:contact@nepali365.com" className="font-semibold text-[#003893] hover:text-[#c8102e] transition">
+                contact@nepali365.com
+              </a>
+            </p>
+          </div>
         </div>
       </section>
     </>

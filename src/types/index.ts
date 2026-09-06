@@ -1,4 +1,4 @@
-export type Page = 'home' | 'about' | 'fellowship' | 'apply';
+export type Page = 'home' | 'about' | 'fellowship' | 'apply' | 'faq';
 
 export type ApplicationForm = {
   fullName: string;

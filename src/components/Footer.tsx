@@ -11,14 +11,14 @@ export function Footer({ onNavigate }: { onNavigate: (page: Page) => void }) {
               <Globe2 size={20} />
             </span>
             <span className="font-display text-2xl font-semibold">
-              Nepal<span className="text-[#ff7184]">365</span>
+              Nepali<span className="text-[#ff7184]">365</span>
             </span>
           </div>
           <p className="mt-5 max-w-xs text-sm leading-6 text-white/65">
             The premier research and media network connecting, informing, and empowering the global Nepali diaspora.
           </p>
           <div className="mt-7 flex gap-2">
-            <a className="social-link" href="mailto:contact@nepal365.org" aria-label="Email"><Mail size={16} /></a>
+            <a className="social-link" href="mailto:contact@nepal365.com" aria-label="Email"><Mail size={16} /></a>
             <a className="social-link" href="#" aria-label="Instagram"><Instagram size={16} /></a>
             <a className="social-link" href="#" aria-label="LinkedIn"><Linkedin size={16} /></a>
             <a className="social-link" href="#" aria-label="YouTube"><Youtube size={16} /></a>
@@ -46,14 +46,12 @@ export function Footer({ onNavigate }: { onNavigate: (page: Page) => void }) {
           <h3 className="footer-heading">Contact</h3>
           <p className="text-sm leading-7 text-white/65">
             General inquiries<br />
-            <a href="mailto:contact@nepal365.org" className="text-white hover:text-[#ff7184]">contact@nepal365.org</a>
+            <a href="mailto:contact@nepali365.com" className="text-white hover:text-[#ff7184]">contact@nepali365.com</a>
             <br /><br />
-            Fellowship desk<br />
-            <a href="mailto:fellowship@nepal365.org" className="text-white hover:text-[#ff7184]">fellowship@nepal365.org</a>
           </p>
         </div>
       </div>
-      <div className="border-t border-white/10">
+      <div className="border-t border-white/10"> 
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-white/45 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
           <span>© 2026 Nepal365 Media Network. All rights reserved.</span>
           <span>Made for the global Nepali diaspora.</span>
